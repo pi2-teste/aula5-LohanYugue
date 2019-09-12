@@ -39,22 +39,110 @@ public class AceleradorView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        btnAcelerar = new javax.swing.JButton();
+        btnFrear = new javax.swing.JButton();
+        caixaTextoAcelerar = new javax.swing.JTextField();
+        caixaTextoFrear = new javax.swing.JFormattedTextField();
+        caixaTextoVelocimetro = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Piloto Automático");
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/velocidade.png"))); // NOI18N
+        jLabel1.setText("Velocímetro");
+        jLabel1.setToolTipText("");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel1.setVerifyInputWhenFocusTarget(false);
+        jLabel1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        btnAcelerar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/seta-cima.png"))); // NOI18N
+        btnAcelerar.setText("Acelerar");
+        btnAcelerar.setActionCommand("btnAcelerar");
+        btnAcelerar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAcelerar.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnAcelerar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnAcelerar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAcelerarActionPerformed(evt);
+            }
+        });
+
+        btnFrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/seta-baixo.png"))); // NOI18N
+        btnFrear.setText("Frear");
+        btnFrear.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnFrear.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnFrear.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+
+        caixaTextoAcelerar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                caixaTextoAcelerarActionPerformed(evt);
+            }
+        });
+
+        caixaTextoVelocimetro.setText("        0");
+        caixaTextoVelocimetro.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 441, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(138, 138, 138)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(caixaTextoVelocimetro, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(48, 48, 48)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnAcelerar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnFrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(caixaTextoAcelerar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(caixaTextoFrear))
+                .addContainerGap(178, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 292, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(85, 85, 85)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAcelerar)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(caixaTextoAcelerar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btnFrear))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(caixaTextoVelocimetro, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(caixaTextoFrear, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAcelerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcelerarActionPerformed
+        // TODO add your handling code here:
+        if(btnAcelerar.getText().trim().equals("")){
+            meuCarro.acelerar();
+        }
+        else{
+           meuCarro.acelerar(SOMEBITS);
+        }
+    }//GEN-LAST:event_btnAcelerarActionPerformed
+
+    private void caixaTextoAcelerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caixaTextoAcelerarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_caixaTextoAcelerarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -96,5 +184,11 @@ public class AceleradorView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAcelerar;
+    private javax.swing.JButton btnFrear;
+    private javax.swing.JTextField caixaTextoAcelerar;
+    private javax.swing.JFormattedTextField caixaTextoFrear;
+    private javax.swing.JLabel caixaTextoVelocimetro;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
